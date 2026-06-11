@@ -1584,6 +1584,10 @@ button   { cursor: pointer; border: none; background: none; font-family: inherit
   letter-spacing: 0.04em;
 }
 
+/* ══════════════════════════════════════════
+   MOBILE PHONE — min-width: 768px
+══════════════════════════════════════════ */
+
 @media (max-width: 350px) {
 .theme-toggle {
   display: none;
@@ -1592,6 +1596,8 @@ button   { cursor: pointer; border: none; background: none; font-family: inherit
 .theme-icon {
   display: none;
 }
+
+.
 }
 
 /* ══════════════════════════════════════════
