@@ -1,0 +1,262 @@
+/* ==========================================================================
+   FINLY AUTHENTICATION SYSTEM — MODERN CLASSY DESIGN
+   ========================================================================== */
+
+:root {
+  --mocha:          #A5856E;
+  --mocha-dark:     #8a6d59;
+  --mocha-light:    #c4a48f;
+  --gold:           #b07d3e;
+  --gold-bright:    #623519 ;
+  --gold-glow:      rgba(176, 125, 62, 0.12);
+
+  --bg:             #faf9f6;
+  --bg-card:        #ffffff;
+  --border:         rgba(165, 133, 110, 0.15);
+  --border-bright:  rgba(165, 133, 110, 0.35);
+
+  --text-primary:   #1e1209;
+  --text-secondary: #5a3e2b;
+  --text-muted:     #9e8675;
+
+  --error-color:    #d94141;
+  --error-bg:       rgba(217, 65, 65, 0.03);
+}
+
+[data-theme="dark"] {
+  --bg:             #120b05;
+  --bg-card:        #180e07;
+  --border:         rgba(165, 133, 110, 0.12);
+  --border-bright:  rgba(165, 133, 110, 0.28);
+
+  --text-primary:   #fcfaf7;
+  --text-secondary: #e3dcd5;
+  --text-muted:     #a89689;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Classy Card Container Optimization */
+.auth-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  width: 100%;
+  max-width: 410px;
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(30, 18, 9, 0.04);
+}
+
+/* Sleek Minimalist Tabs */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  gap: 2rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  color: var(--text-muted);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-secondary);
+}
+
+.tab-btn.active {
+  color: var(--text-primary);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gold-bright);
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+.auth-form h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Password Wrapper and Inline Eye Button */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 3rem !important;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: var(--text-secondary);
+}
+
+.eye-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.input-group input {
+  background-color: var(--bg);
+  border: 1px solid var(--border-bright);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+  border-color: var(--mocha);
+  box-shadow: 0 0 0 4px var(--gold-glow);
+}
+
+.input-group input.invalid {
+  border-color: var(--error-color);
+  background-color: var(--error-bg);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.75rem;
+  margin-top: 0.45rem;
+  min-height: 16px;
+  font-weight: 500;
+}
+
+.auth-btn {
+  width: 100%;
+  background-color: var(--gold-bright);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  margin-top: 0.75rem;
+  box-shadow: 0 6px 20px var(--gold-glow);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.auth-btn:hover {
+  background-color: var(--gold);
+}
+
+.auth-btn:active {
+  transform: scale(0.99);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM DOWN TO 250PX
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  body { padding: 1rem; }
+  .auth-container { padding: 2.25rem 1.5rem; border-radius: 16px; }
+  .auth-form h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+}
+
+@media (max-width: 340px) {
+  body { padding: 0.5rem; }
+  .auth-container { padding: 1.75rem 1rem; border-radius: 12px; }
+  .auth-tabs { gap: 1rem; margin-bottom: 1.75rem; }
+  .tab-btn { font-size: 0.85rem; }
+  .auth-form h2 { font-size: 1.25rem; margin-bottom: 1.25rem; }
+  .input-group { margin-bottom: 1.1rem; }
+  .input-group input { padding: 0.8rem 0.9rem; font-size: 0.9rem; border-radius: 10px; }
+  .password-toggle { right: 8px; }
+  .eye-icon { width: 16px; height: 16px; }
+  .auth-btn { padding: 0.85rem; font-size: 0.9rem; border-radius: 10px; }
+}
+
+/* Micro-Display Strategy Boundary Control (250px Layout Support) */
+@media (max-width: 270px) {
+  .auth-container { padding: 1.25rem 0.65rem; border-radius: 8px; }
+  .auth-tabs { gap: 0.6rem; margin-bottom: 1.25rem; }
+  .tab-btn { font-size: 0.78rem; letter-spacing: 0.01em; }
+  .auth-form h2 { font-size: 1.1rem; }
+  .input-group label { font-size: 0.7rem; margin-bottom: 0.4rem; }
+  .input-group input { padding: 0.7rem 0.75rem; font-size: 0.85rem; border-radius: 8px; }
+  .error-message { font-size: 0.7rem; min-height: 14px; }
+  .auth-btn { padding: 0.75rem; font-size: 0.85rem; border-radius: 8px; }
+}

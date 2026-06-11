@@ -1,0 +1,277 @@
+
+/* ──  MY DESIGN SYSTEM VARIABLES  */
+:root {
+  /* Core Palette Tokens */
+  --mocha: #A5856E;
+  --mocha-dark: #8a6d59;
+  --gold: #b07d3e;
+  --gold-bright: #c9923f;
+  --gold-glow: rgba(176, 125, 62, 0.08);
+  
+  /* Adaptive Surface Palette */
+  --bg: #faf9f6;
+  --bg-card: #ffffff;
+  --border: rgba(165, 133, 110, 0.16);
+  --border-focus: rgba(176, 125, 62, 0.45);
+  
+  /* Typography Hierarchy */
+  --text-primary: #1e1209;
+  --text-secondary: #5a3e2b;
+  --text-muted: #9e8675;
+  --font-head: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Grid Token Utilities */
+  --site-max-width: 1100px;
+  --container-padding: 1.25rem;
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+  --bg: #140d08;
+  --bg-card: #1c130e;
+  --border: rgba(196, 164, 143, 0.12);
+  --text-primary: #f5ede6;
+  --text-secondary: #c4a48f;
+  --text-muted: #8a705e;
+}
+
+/* ──  RESET & BASE LAYOUT FOUNDATIONS ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 3. COMPONENT: MINIMAL COMPACT HEADER ── */
+.sub-header {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.sub-header-nav {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 1rem var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sub-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.sub-brand .logo-icon {
+  color: var(--gold);
+}
+
+.sub-back-link {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-smooth);
+}
+
+.sub-back-link:hover {
+  background-color: var(--gold-glow);
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+/* ── 4. MAIN HERO ARCHITECTURE ── */
+.sub-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 3.5rem var(--container-padding);
+}
+
+.hero-block {
+  margin-bottom: 3.5rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--gold-glow);
+  color: var(--gold);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.hero-block h1 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.hero-block p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 650px;
+}
+
+/* ── 5. RESPONSIVE GRID CONFIGURATIONS ── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.content-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  transition: var(--transition-smooth);
+}
+
+.content-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-focus);
+  box-shadow: 0 10px 25px -5px rgba(26, 18, 12, 0.03);
+}
+
+.content-card h2, .content-card h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.content-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── 6. PROCESS STACK DESIGNS (How It Works) ── */
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.process-step {
+  display: flex;
+  gap: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+}
+
+.step-marker {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* ── 7. LEGAL DOCUMENT HOOKS (Privacy, Terms) ── */
+.legal-flow {
+  max-width: 760px;
+}
+
+.legal-flow h2 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 2.5rem 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.legal-flow p {
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+}
+
+/* ── 8. SYSTEM GLOBAL FOOTER ── */
+.sub-footer {
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-card);
+  padding: 2rem var(--container-padding);
+  text-align: center;
+}
+
+.sub-footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   RESILIENT MEDIA QUERY ENGINE (Down to 250px)
+   ========================================================================== */
+
+/* Tablet and Small Desktops breakpoint */
+@media (min-width: 600px) {
+  .grid-2-col { grid-template-columns: repeat(2, 1fr); }
+  .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+  .sub-main { padding-block: 5rem; }
+  .hero-block h1 { font-size: 3rem; }
+}
+
+/* Ultra Micro Display Safe Engine (320px down to 250px) */
+@media (max-width: 320px) {
+  :root { --container-padding: 0.75rem; }
+  .sub-header-nav { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .sub-back-link { width: 100%; text-align: center; }
+  .hero-block h1 { font-size: 1.65rem; }
+  .content-card, .process-step { padding: 1.25rem; border-radius: var(--radius-sm); }
+  .process-step { flex-direction: column; gap: 0.5rem; }
+}
+
+@media (max-width: 265px) {
+  .sub-brand .logo-text { display: none; } /* Drop title text on micro widths to prevent clipping */
+  .hero-block h1 { font-size: 1.4rem; }
+}

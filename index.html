@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FinFlow - Smart budget tracking that gives you clarity over your finances." />
+  <title>FinFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="images/finly main logo.svg" size="32 X 32">
+  <link href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar">
+    <nav class="nav-container" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" aria-label="FinFlow Home">
+        <img src="images/finly main logo.svg" alt="FinFlow Logo">
+        <span class="logo-text">FinFlow</span>
+      </a>
+
+      <!-- Nav Links (desktop) -->
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How We Work</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <!-- Theme Toggle (desktop) -->
+        <button
+          class="theme-toggle"
+          id="theme-toggle-desktop"
+          aria-label="Switch to dark mode"
+          title="Toggle colour mode">
+          <span class="theme-icon theme-icon--light" aria-hidden="true">
+            <!-- Sun SVG -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <line x1="12" y1="2"  x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="4.22" y1="4.22"  x2="6.34" y2="6.34"/>
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+              <line x1="2"  y1="12" x2="5"  y2="12"/>
+              <line x1="19" y1="12" x2="22" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+              <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+            </svg>
+          </span>
+          <span class="theme-icon theme-icon--dark" aria-hidden="true">
+            <!-- Moon SVG -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </span>
+        </button>
+
+        <a href="login.html" class="btn btn-primary">Get Started</a>
+
+        <!-- Hamburger (mobile) -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <div class="mobile-menu__inner">
+
+      <!-- Mobile menu header -->
+      <div class="mobile-menu__header">
+        <a href="#" class="nav-logo" aria-label="FinFlow Home">
+          <img src="images/finly main logo.svg" alt="FinFlow Logo">
+          <span class="logo-text">FinFlow</span>
+        </a>
+        <button class="mobile-menu__close" id="mobile-close" aria-label="Close navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Links -->
+      <nav aria-label="Mobile navigation links">
+        <ul class="mobile-nav-links" role="list">
+          <li>
+            <a href="../resources/features.html" class="mobile-nav-link" data-close-menu>
+              <span class="mobile-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                </svg>
+              </span>
+              Features
+              <span class="mobile-nav-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="../resources/how-it-works.html" class="mobile-nav-link" data-close-menu>
+              <span class="mobile-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </span>
+              How It Works
+              <span class="mobile-nav-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#testimonial" class="mobile-nav-link" data-close-menu>
+              <span class="mobile-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </span>
+              Testimonials
+              <span class="mobile-nav-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#pricing" class="mobile-nav-link" data-close-menu>
+              <span class="mobile-nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </span>
+              Pricing
+              <span class="mobile-nav-arrow">→</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Theme Toggle -->
+      <div class="mobile-menu__theme">
+        <div class="mobile-theme-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+            <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+          </svg>
+          <span>Mode Switch</span>
+        </div>
+        <div class="mobile-theme-switcher" role="group" aria-label="Choose colour mode">
+          <button class="theme-pill active" id="mobile-light-btn" aria-pressed="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/>
+              <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+              <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+            </svg>
+            Light
+          </button>
+          <button class="theme-pill" id="mobile-dark-btn" aria-pressed="false">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            Dark
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile CTA -->
+      <div class="mobile-menu__cta">
+        <a href="login.html" class="btn btn-primary" style="width:100%; justify-content:center;" data-close-menu>
+          Log in
+        </a>
+        <a href="login.html" class="btn btn-ghost" style="width:100%; justify-content:center; margin-top: 0.75rem;">
+          Sign In
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Menu backdrop -->
+  <div class="mobile-menu__backdrop" id="menu-backdrop" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <h1 id="hero-heading">Your Money.<br /><span class="gold-text">Your Clarity.</span></h1>
+        <p class="hero-sub">
+          FinFlow gives you a real-time view of your spending, goals, and savings
+          all in one simple dashboard.
+        </p>
+        <div class="hero-ctas">
+          <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+          <a href="#how-it-works" class="btn btn-ghost">See How We Works</a>
+        </div>
+        <p class="hero-note">You Do Not Need a credit card &nbsp;···&nbsp; Free 14-day trial</p>
+      </div>
+
+      <!-- Mock Dashboard -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="dashboard-card">
+          <div class="dash-header">
+            <span class="dash-title">Monthly Overview</span>
+            <span class="dash-date">June 2026</span>
+          </div>
+          <div class="dash-balance">
+            <span class="dash-label">Total Balance</span>
+            <span class="dash-amount">$12,480.50</span>
+          </div>
+          <div class="dash-bars">
+            <div class="bar-row">
+              <span>Housing</span>
+              <div class="bar"><div class="bar-fill" style="width:72%"></div></div>
+              <span>72%</span>
+            </div>
+            <div class="bar-row">
+              <span>Food</span>
+              <div class="bar"><div class="bar-fill" style="width:45%"></div></div>
+              <span>45%</span>
+            </div>
+            <div class="bar-row">
+              <span>Transport</span>
+              <div class="bar"><div class="bar-fill bar-accent" style="width:30%"></div></div>
+              <span>30%</span>
+            </div>
+            <div class="bar-row">
+              <span>Savings</span>
+              <div class="bar"><div class="bar-fill bar-success" style="width:60%"></div></div>
+              <span>60%</span>
+            </div>
+          </div>
+          <div class="dash-footer">
+            <div class="dash-stat">
+              <span class="stat-val">$3,200</span>
+              <span class="stat-label">Spent</span>
+            </div>
+            <div class="dash-stat">
+              <span class="stat-val">$1,800</span>
+              <span class="stat-label">Saved</span>
+            </div>
+            <div class="dash-stat">
+              <span class="stat-val">94%</span>
+              <span class="stat-label">Goal Progress</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!---- FEATURES  --->
+    <section class="features" id="features" aria-labelledby="features-heading">
+      <div class="section-container">
+        <div class="section-label">What You Get</div>
+        <h2 id="features-heading">Everything You Need to<br />Change Your Finances</h2>
+        <p class="section-sub">Intentional Financial clarity no spreadsheets, no confusion.</p>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">◈</div>
+            <h3>Spending Insights</h3>
+            <p>Automatically categorize every transaction you make and shows exactly where your money goes each month.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">◎</div>
+            <h3>Budget Goals</h3>
+            <p>Set spending limits per category and get notified before you overspend. Stay on track, always.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">◆</div>
+            <h3>Smart Reports</h3>
+            <p>Monthly and weekly reports that surface patterns, trends, and opportunities to save more.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">⬡</div>
+            <h3>Multi-Account Sync</h3>
+            <p>Connect all your bank accounts and cards. One dashboard. Complete financial picture.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">◭</div>
+            <h3>Savings Planner</h3>
+            <p>Define savings milestones, vacations, emergency fund, investment and track them in realtime.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">⬛</div>
+            <h3>Bank-Level Security</h3>
+            <p>256-bit encryption, 2FA, and read-only bank access. Your data is yours and yours alone.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--  --- HOW WE WORK SECTION ------- -->
+    <section class="how-it-works" id="how-it-works" aria-labelledby="hiw-heading">
+      <div class="section-container">
+        <div class="section-label">The Process</div>
+        <h2 id="hiw-heading">Up and Running in<br />3 Simple Steps</h2>
+        <ol class="steps-list" role="list">
+          <li class="step">
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-content">
+              <h3>Connect Your Accounts</h3>
+              <p>Securely link your bank accounts, credit cards, and wallets using our encrypted sync.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-content">
+              <h3>Set Your Budget</h3>
+              <p>Define monthly budgets for each category. FinFlow auto-fills from your spending history.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-content">
+              <h3>Track &amp; Grow</h3>
+              <p>Watch your dashboard update in real time. Hit your goals. Build lasting financial habits.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="section-container">
+        <div class="section-label">Real People. Real Results.</div>
+        <h2 id="testimonials-heading">What Our Users Say</h2>
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              <p>"FinFlow completely changed how I relate to my money. I paid off $6,000 in debt in 8 months using the budget goals feature."</p>
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">MA</div>
+              <div>
+                <strong>Mary Austin</strong>
+                <span>Freelance Designer</span>
+              </div>
+            </footer>
+          </article>
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              <p>"The spending insights are insane. I had no idea I was spending $400/month on subscriptions I forgot about."</p>
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">SW</div>
+              <div>
+                <strong>Snow Works</strong>
+                <span>Software Engineer</span>
+              </div>
+            </footer>
+          </article>
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              <p>"Simple, clean, powerful. I've tried 5 budgeting apps and FinFlow is the only one I've stuck with for more than a month."</p>
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">LO</div>
+              <div>
+                <strong>Lena Obi</strong>
+                <span>Entrepreneur</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-----  PRICING SECTION -------->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-heading">
+      <div class="section-container">
+        <div class="section-label">Simple Pricing</div>
+        <h2 id="pricing-heading">Start Free <br>Scale When Ready.</h2>
+        <div class="billing-toggle" role="group" aria-label="Billing period">
+          <span id="toggle-monthly" class="toggle-label active">Monthly</span>
+          <button class="toggle-switch" id="billing-toggle" aria-checked="false" role="switch" aria-label="Switch to annual billing">
+            <span class="toggle-thumb"></span>
+          </button>
+          <span id="toggle-annual" class="toggle-label">Annual <span class="save-badge">Save 20%</span></span>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <h3>Free</h3>
+            <div class="price">
+              <span class="price-amount" data-monthly="$0" data-annual="$0">$0</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="price-desc">Perfect for getting started.</p>
+            <ul class="price-features" role="list">
+              <li>1 connected account</li>
+              <li>Basic spending categories</li>
+              <li>30-day transaction history</li>
+              <li>Monthly summary report</li>
+            </ul>
+            <a href="resources/checkout.html" class="btn btn-ghost">Get Started Free</a>
+          </article>
+          <article class="pricing-card pricing-card--featured">
+            <div class="popular-badge">Most Popular</div>
+            <h3>Pro</h3>
+            <div class="price">
+              <span class="price-amount" data-monthly="$12" data-annual="$9.8">$12</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="price-desc">For individuals serious about their finances.</p>
+            <ul class="price-features" role="list">
+              <li>Unlimited accounts</li>
+              <li>Smart spending insights</li>
+              <li>Full transaction history</li>
+              <li>Budget goals &amp; alerts</li>
+              <li>Weekly &amp; monthly reports</li>
+              <li>Savings planner</li>
+            </ul>
+            <a href="resources/checkout.html" class="btn btn-primary">Start 14-Day Trial</a>
+          </article>
+          <article class="pricing-card">
+            <h3>Team</h3>
+            <div class="price">
+              <span class="price-amount" data-monthly="$29" data-annual="$22">$29</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p class="price-desc">For households and small teams.</p>
+            <ul class="price-features" role="list">
+              <li>Up to 5 users</li>
+              <li>Shared budget dashboards</li>
+              <li>All Pro features</li>
+              <li>Priority support</li>
+              <li>Export to CSV/PDF</li>
+            </ul>
+            <a href="resources/checkout.html" class="btn btn-ghost">Get Team Plan</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" aria-label="FinFlow Home">
+          <span class="logo-icon"><img src="images/finly main logo.svg" alt="FinFlow Logo"></span>
+          <span class="logo-text">FinFlow</span>
+        </a>
+        <p>Your money. Your clarity.<br />Built for people who want more from their finances.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="resources/features.html">Features</a></li>
+            <li><a href="resources/pricing.html">Pricing</a></li>
+            <li><a href="resources/how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="resources/about.html">About</a></li>
+            <li><a href="resources/blog.html">Blog</a></li>
+            <li><a href="resources/careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul role="list">
+            <li><a href="resources/privacy.html">Privacy Policy</a></li>
+            <li><a href="resources/terms.html">Terms of Service</a></li>
+            <li><a href="resources/security.html">Security</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 FinFlow Inc. All rights reserved.</p>
+      <p>&copy; Built By Snow Works (Michael Samuel)</p>
+    </div>
+  </footer>
+  
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

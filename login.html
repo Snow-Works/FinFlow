@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="images/finly main logo.svg" size="32 X 32">
+  <link href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <div class="auth-tabs">
+      <button id="tab-login" class="tab-btn active" onclick="switchForm('login')">Log In</button>
+      <button id="tab-signup" class="tab-btn" onclick="switchForm('signup')">Sign Up</button>
+    </div>
+
+    <form id="login-form" class="auth-form active" novalidate>
+      <h2>Welcome Back</h2>
+      
+      <div class="input-group">
+        <label for="login-email">Email Address</label>
+        <input type="email" id="login-email" placeholder="name@example.com">
+        <span class="error-message" id="error-login-email"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="login-password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="login-password" placeholder="••••••••">
+          <button type="button" class="password-toggle" onclick="togglePasswordVisibility('login-password', this)" aria-label="Toggle password visibility">
+            <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-icon eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+        <span class="error-message" id="error-login-password"></span>
+      </div>
+
+      <button type="submit" class="auth-btn"><a href="../app-resources/app-dashboard.html" id="btn-name">Log In</a></button>
+    </form>
+
+    <form id="signup-form" class="auth-form" novalidate>
+      <h2>Create Account</h2>
+
+      <div class="input-group">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" placeholder="e.g. Michael Samuel">
+        <span class="error-message" id="error-signup-name"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="signup-email">Email Address</label>
+        <input type="email" id="signup-email" placeholder="name@example.com">
+        <span class="error-message" id="error-signup-email"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="signup-password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="signup-password" placeholder="Minimum 8 characters">
+          <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signup-password', this)" aria-label="Toggle password visibility">
+            <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-icon eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+        <span class="error-message" id="error-signup-password"></span>
+      </div>
+
+      <div class="input-group">
+        <label for="signup-confirm">Confirm Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="signup-confirm" placeholder="Repeat password">
+          <button type="button" class="password-toggle" onclick="togglePasswordVisibility('signup-confirm', this)" aria-label="Toggle password visibility">
+            <svg class="eye-icon eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-icon eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+        <span class="error-message" id="error-signup-confirm"></span>
+      </div>
+
+      <button type="submit" class="auth-btn">Sign Up</button>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

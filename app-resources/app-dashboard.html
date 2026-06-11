@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="../images/finly main logo.svg" size="32 X 32">
+  <link href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="app-dashboard.css">
+  <script>
+    /* Direct, non-flicker synchronization lock with the user's active theme selection */
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('finly-theme') || 'light');
+  </script>
+</head>
+<body>
+
+  <header class="workspace-navbar">
+    <div class="nav-fluid-container">
+      <div class="brand-block">
+        <img src="../images/finly main logo.svg" alt="FinFlow Logo" width="60px" height="60px">
+        <span class="brand-text">FinFlow</span>
+        <span class="status-pill">Account</span>
+      </div>
+      
+      <div class="user-profile-widget" onclick="toggleProfileDropdown(event)">
+        <div class="avatar-circle" id="user-avatar-initials">U</div>
+        <div class="user-meta-desktop">
+          <span class="user-display-name" id="user-display-name-nav">Active Operator</span>
+          <span class="user-display-role">Account Owner</span>
+        </div>
+        <span class="dropdown-chevron">▼</span>
+        
+        <div class="profile-dropdown-card" id="profile-dropdown">
+          <div class="dropdown-header">
+            <p class="dropdown-profile-name" id="dropdown-profile-name">Active User</p>
+            <p class="dropdown-profile-email" id="dropdown-profile-email">user@example.com</p>
+          </div>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-action-btn logout-danger" onclick="executeSecureLogout()">
+            <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="workspace-viewport">
+    
+    <section class="liquidity-matrix-board">
+      <div class="liquidity-card balance-card">
+        <div class="card-meta">
+          <span class="card-label">Money Spent/per day</span>
+          <span class="pulse-indicator stable"></span>
+        </div>
+        <h1 id="net-liquidity-display">$19.00</h1>
+        <p class="card-sub-metric">Liquidity Spent per-day</p>
+      </div>
+      
+      <div class="liquidity-card income-card">
+        <div class="card-meta">
+          <span class="card-label">Income Stream Total/per day</span>
+        </div>
+        <h2 id="total-income-display">$1560.05</h2>
+        <p class="card-sub-metric">Total income per day</p>
+      </div>
+
+      <div class="liquidity-card expense-card">
+        <div class="card-meta">
+          <span class="card-label">Account Balance</span>
+        </div>
+        <h2 id="total-expenses-display">$674,000.00</h2>
+        <p class="card-sub-metric">Total money allocations</p>
+      </div>
+    </section>
+
+    <div class="workspace-split-grid">
+      
+      <div class="workspace-column-left">
+        
+        <div class="workspace-panel">
+          <div class="panel-header">
+            <h3>Daily Expenses</h3>
+            <p class="panel-subtitle">Monitor and control your spending with discipline</p>
+          </div>
+          <form id="realtime-transaction-form" onsubmit="handleLogTransaction(event)">
+            <div class="form-group">
+              <label for="tx-description">Expense Name</label>
+              <input type="text" id="tx-description" required placeholder="e.g., AWS Instance Pipeline Scale">
+            </div>
+            
+            <div class="form-row-split">
+              <div class="form-group">
+                <label for="tx-amount">Amount:</label>
+                <input type="number" step="0.01" id="tx-amount" required placeholder="0.00" min="0.01">
+              </div>
+              <div class="form-group">
+                <label for="tx-type">Money Source:</label>
+                <select id="tx-type" required onchange="reactivelySyncCategoryDropdown(this.value)">
+                  <option value="expense" selected>Personal Bank</option>
+                  <option value="income">Joint Account</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tx-category">Transaction Reason:</label>
+              <select id="tx-category" required>
+                </select>
+                
+                
+            </div>
+
+            <button type="submit" class="primary-action-btn">
+              <span>Commit and send</span>
+              <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="workspace-panel">
+          <div class="panel-header-inline">
+            <div>
+              <h3>Active Saving</h3>
+              <p class="panel-subtitle">Savings...</p>
+            </div>
+            <button class="ghost-add-btn" onclick="openNewVaultModal()" aria-label="Open New Vault Container">+ Add money</button>
+          </div>
+          <div class="vault-stack-container" id="reactive-vaults-stack">
+            </div>
+        </div>
+
+      </div>
+
+      <div class="workspace-column-right">
+        <div class="workspace-panel ledger-panel">
+          <div class="panel-header-inline">
+            <div>
+              <h3>Active Master Record Stream</h3>
+              <p class="panel-subtitle">Real-time balance after expenses</p>
+            </div>
+            <span class="live-activity-pulse" aria-hidden="true"></span>
+          </div>
+          
+          <div class="table-scroll-frame">
+            <table class="realtime-ledger-table">
+              <thead>
+                <tr>
+                  <th>Transaction / Per day</th>
+                  <th>Income Source</th>
+                  <th class="text-right">Settled Amount</th>
+                </tr>
+              </thead>
+              <tbody id="reactive-ledger-rows">
+                </tbody>
+            </table>
+            <div id="ledger-empty-state" class="empty-state-placeholder hidden">
+              <p>No operational entries matched inside active system cache lines.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="modal-backdrop hidden" id="vault-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h4>Deploy New Allocation Vault</h4>
+        <button class="modal-close-btn" onclick="closeNewVaultModal()">&times;</button>
+      </div>
+      <form id="new-vault-form" onsubmit="handleCreateVault(event)">
+        <div class="form-group">
+          <label for="vault-name">Vault Name / Segment</label>
+          <input type="text" id="vault-name" required placeholder="e.g., Marketing, Subscriptions">
+        </div>
+        <div class="form-group">
+          <label for="vault-allocation">Allocation Cap ($)</label>
+          <input type="number" id="vault-allocation" required placeholder="1000" min="1">
+        </div>
+        <div class="form-group">
+          <label for="vault-color">Visual Color Identifier</label>
+          <select id="vault-color" required>
+            <option value="#A5856E">Mocha Deep Classic</option>
+            <option value="#b07d3e">FinFlow Gold Accent</option>
+            <option value="#7abfcf">Hydra Blue Accent</option>
+            <option value="#4a9e7a">Emerald Green Shield</option>
+            <option value="#d94141">Crimson Risk Vector</option>
+          </select>
+        </div>
+        <button type="submit" class="primary-action-btn">Initialize Vault</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app-dashboard.js"></script>
+</body>
+</html>

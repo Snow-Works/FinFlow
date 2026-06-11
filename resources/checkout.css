@@ -1,0 +1,264 @@
+/* ==========================================================================
+   FINLY STANDALONE CHECKOUT MODULE — DYNAMICALLY THEMED
+   ========================================================================== */
+
+body {
+  margin: 0; padding: 0;
+  background-color: var(--bg); /* Adapts to light/dark canvas */
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.checkout-page-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkout-window {
+  background-color: var(--bg-card); /* Adapts to active surface background */
+  border: 1px solid var(--border-bright);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure deep shadows if dark mode attribute is active */
+[data-theme="dark"] .checkout-window {
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+}
+
+/* ── 2. IDENTITY HEADER ── */
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+}
+
+.secure-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.secure-brand h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.secure-sub {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.close-checkout-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 0.8;
+  transition: color 0.2s ease;
+}
+
+.close-checkout-btn:hover { 
+  color: var(--gold-bright); 
+}
+
+/* ── 3. SUMMARY BOX ── */
+.order-summary-box {
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.summary-label { color: var(--text-secondary); }
+.summary-val { font-weight: 700; color: var(--text-primary); font-family: 'Montserrat', sans-serif; }
+.gold-text { color: var(--gold-bright); }
+
+.summary-divider {
+  border-top: 1px dashed var(--border-bright);
+  margin: 0.75rem 0;
+}
+
+.total-row {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.trial-disclaimer {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ── 4. INPUT FIELD FIELDS ── */
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-field-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-field-group input {
+  background-color: var(--bg);
+  border: 1px solid var(--border-bright);
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-field-group input:focus {
+  outline: none;
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+
+.input-icon-wrapper { position: relative; }
+
+.card-brand-indicator {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  pointer-events: none;
+  color: var(--text-secondary);
+}
+
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ── 5. SUBMIT BUTTON ── */
+.pay-submit-btn {
+  background-color: var(--gold-bright);
+  color: #ffffff; /* Contrast text fallback */
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  padding: 0.95rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+/* Make sure button readable contrast text inside light parameters */
+[data-theme="light"] .pay-submit-btn {
+  color: #1e1209;
+}
+
+.pay-submit-btn:hover { opacity: 0.9; }
+.pay-submit-btn:active { transform: scale(0.99); }
+
+.merchant-logos {
+  text-align: center;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-top: 1.25rem;
+}
+
+/* ── 6. LOADING SCREEN STATE ── */
+.status-screen {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  z-index: 10;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--border);
+  border-top-color: var(--gold-bright);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#status-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+#status-desc { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+/* ── 7. RESPONSIVE MEDIA BREAKPOINTS ── */
+@media (max-width: 350px) {
+  .checkout-window { padding: 1.25rem 1rem; border-radius: 8px; }
+  .form-row-split { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (max-width: 280px) {
+  .secure-brand h3 { font-size: 0.95rem; }
+  .secure-sub { display: none; }
+  .order-summary-box { padding: 0.75rem; }
+  .form-field-group input { padding: 0.65rem 0.5rem; font-size: 0.85rem; }
+  .pay-submit-btn { font-size: 0.85rem; padding: 0.85rem; }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secured Payment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="../images/finly main logo.svg" size="32 X 32">
+  <link href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+
+<body>
+
+  <div class="checkout-page-container">
+    <div class="checkout-window">
+      
+      <!-- Header Controls -->
+      <div class="checkout-header">
+        <div class="secure-brand">
+          <span class="secure-icon">🔒</span>
+          <div>
+            <h3>FinFlow Secure Checkout</h3>
+            <p class="secure-sub">Encrypted 256-bit Connection</p>
+          </div>
+        </div>
+        <!-- Safe Fallback Backlink Route Context -->
+        <a href="../index.html" class="close-checkout-btn" aria-label="Cancel Checkout">&times;</a>
+      </div>
+
+      <!-- Order Summary Card -->
+      <div class="order-summary-box">
+        <div class="summary-row">
+          <span class="summary-label">Selected Plan:</span>
+          <span class="summary-val font-head">Professional Ledger</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Trial Window:</span>
+          <span class="summary-val gold-text">14 Days Free</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-row total-row">
+          <span>Authorization Hold:</span>
+          <span>$0.00</span>
+        </div>
+        <p class="trial-disclaimer">After your 14-day trial, you will be billed $9.00/month. Cancel anytime with a single click.</p>
+      </div>
+
+      <!-- Live Feedback Screen / Success States -->
+      <div id="payment-status-screen" class="status-screen" style="display: none;">
+        <div class="spinner"></div>
+        <h4 id="status-title">Processing Transaction...</h4>
+        <p id="status-desc">Verifying credentials with card issuer tokens.</p>
+      </div>
+
+      <!-- Primary Payment Form -->
+      <form id="secure-payment-form" onsubmit="handlePaymentSubmission(event)">
+        
+        <!-- Cardholder Name -->
+        <div class="form-field-group">
+          <label for="card-name">Cardholder Name</label>
+          <input type="text" id="card-name" required placeholder="e.g. Michael Samuel" autocomplete="cc-name">
+        </div>
+
+        <!-- Card Number Input with dynamic spacing -->
+        <div class="form-field-group">
+          <label for="card-number">Card Number</label>
+          <div class="input-icon-wrapper">
+            <input type="text" id="card-number" required maxlength="19" placeholder="4000 1234 5678 9010" autocomplete="cc-number" inputmode="numeric" oninput="formatCardNumber(this)">
+            <span class="card-brand-indicator" id="card-type-logo">💳</span>
+          </div>
+        </div>
+
+        <!-- Compact Expiry & CVV Row -->
+        <div class="form-row-split">
+          <div class="form-field-group">
+            <label for="card-expiry">Expiry Date</label>
+            <input type="text" id="card-expiry" required maxlength="5" placeholder="MM/YY" inputmode="numeric" oninput="formatExpiry(this)">
+          </div>
+          <div class="form-field-group">
+            <label for="card-cvv">Security Code (CVV)</label>
+            <input type="password" id="card-cvv" required maxlength="4" placeholder="123" inputmode="numeric">
+          </div>
+        </div>
+
+        <!-- Secure Submission Action -->
+        <button type="submit" class="pay-submit-btn">
+          <span class="btn-lock-icon"></span> Authorize & Start App
+        </button>
+
+        <!-- Network Logos -->
+        <div class="merchant-logos">
+          <span>Visa</span> • <span>Mastercard</span> • <span>Verve</span> • <span>Secure Bank Direct</span>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Link to external interaction controller -->
+  <script src="checkout.js"></script>
+
+  <script>
+  // Sync the checkout page's theme attribute instantly on load based on main page state
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('finly-theme') || 'light');
+</script>
+</body>
+</html>
